@@ -1,0 +1,107 @@
+<html>
+  <body>
+    <div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <h3>hi bub</h3>
+      <h1>Will you be my Valentine?</h1>
+      <img
+        id="valentineImage"
+        src="IMG_9475.jpg"
+        alt="Valentine's Day Image"
+        style="max-width: 300px; height: auto"
+      />
+      <br />
+      <br />
+      <br />
+      <button id="yesButton">Yes</button>
+      <button id="no">No</button>
+    </div>
+
+    <style>
+      body {
+        background: linear-gradient(to bottom, #004225, #004225);
+      }
+      div {
+        text-align: center;
+        vertical-align: middle;
+      }
+      h3 {
+        color: #ffffff;
+      }
+      h1 {
+        color: #ffffff;
+      }
+      #yesButton {
+        background-color: #5db175;
+        transition: transform 0.3s;
+        margin-right: 10px;
+        width: 120px;
+        font-size: 30px;
+        height: 40px;
+        color: #fff;
+        margin-left: -140px;
+      }
+      #no {
+        position: absolute;
+        background-color: #000000;
+        transition: transform 0.3s;
+        margin-left: 10px;
+        width: 120px;
+        /* font-size: 30px; */
+        height: 40px;
+        color: #fff;
+      }
+    </style>
+    <script>
+      document.getElementById("yesButton").addEventListener("click", showAlert);
+
+      function showAlert() {
+        alert("I love you! See you soon <3");
+      }
+
+      var yesButton = document.getElementById("yesButton");
+      var no = document.getElementById("no");
+      var valentineImage = document.getElementById("valentineImage");
+
+      var noTexts = [
+        "are you sure bub? :(",
+        "i will not take no for an answer :p",
+        "you poop >:(",
+        "im taking all my legos back",
+        "im taking Lucy with me >:(",
+      ];
+      var imageSources = [
+        "https://pbs.twimg.com/media/Fyk7XMnaEAI3PsB.jpg",
+        "https://media.tenor.com/BP70qe8X0J8AAAAe/crycat-crying-cat.png",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9e71v7IfFLLS_1CfY2it3an-6XH1uROjTfU5c88AwRL8aRkqAYDmoFrm9gpbUqwNameo&usqp=CAU",
+        "https://i.pinimg.com/736x/cb/d8/3b/cbd83b534a315e809a9da2b8cd3ac3bf.jpg",
+      ];
+
+      no.addEventListener("click", change);
+
+      function change() {
+        var randomIndex = Math.floor(Math.random() * noTexts.length);
+        var randomText = noTexts[randomIndex];
+        no.innerText = randomText;
+
+        var i = Math.floor(Math.random() * 1000) + 1;
+        var j = Math.floor(Math.random() * 700) + 1;
+        no.style.left = i + "px";
+        no.style.top = j + "px";
+
+        var currentWidth = yesButton.offsetWidth;
+        var currentHeight = yesButton.offsetHeight;
+        yesButton.style.width = currentWidth + 30 + "px";
+        yesButton.style.height = currentHeight + 10 + "px";
+
+        var randomImageIndex = Math.floor(Math.random() * imageSources.length);
+        valentineImage.src = imageSources[randomImageIndex];
+      }
+    </script>
+  </body>
+</html>
